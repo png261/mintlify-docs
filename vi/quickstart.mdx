@@ -6,12 +6,29 @@ icon: "rocket"
 
 Hãy dùng trang này khi bạn muốn có cách thiết lập nhanh nhất.
 
+## Chọn hệ điều hành của bạn
+
+- macOS: Dùng Terminal hoặc iTerm và lưu file cấu hình dưới `~/.tool-name/`
+- Linux: Dùng shell quen thuộc của bạn và cùng quy ước `~/.tool-name/`
+- Windows: Dùng PowerShell và lưu file cấu hình dưới `%USERPROFILE%\.tool-name\`
+- WSL: Hãy làm theo ví dụ Linux ở bên trong môi trường WSL
+
 ## Dùng lại các giá trị này ở mọi nơi
+
+### macOS và Linux
 
 ```bash
 export APPLEAI_BASE_URL=https://api.appleai.codes/v1
 export APPLEAI_API_KEY=YOUR_APPLEAI_API_KEY
 export APPLEAI_MODEL=anthropic/claude-sonnet-4
+```
+
+### Windows PowerShell
+
+```powershell
+$env:APPLEAI_BASE_URL="https://api.appleai.codes/v1"
+$env:APPLEAI_API_KEY="YOUR_APPLEAI_API_KEY"
+$env:APPLEAI_MODEL="anthropic/claude-sonnet-4"
 ```
 
 ## Luồng cơ bản
@@ -23,12 +40,21 @@ export APPLEAI_MODEL=anthropic/claude-sonnet-4
 
 ## Kiểm tra kết nối trước
 
+### macOS và Linux
+
 ```bash
 curl https://api.appleai.codes/v1/models \
   -H "Authorization: Bearer $APPLEAI_API_KEY"
 ```
 
-Nếu lệnh này chạy thành công, key của bạn hợp lệ và base URL có thể truy cập được.
+### Windows PowerShell
+
+```powershell
+curl.exe https://api.appleai.codes/v1/models `
+  -H "Authorization: Bearer $env:APPLEAI_API_KEY"
+```
+
+Nếu lệnh này chạy thành công, key của bạn hợp lệ và base URL có thể truy cập được trong shell hiện tại của bạn.
 
 ## Thứ tự nên làm
 

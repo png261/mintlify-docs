@@ -4,15 +4,33 @@ description: "Cấu hình Codex CLI với provider tùy chỉnh appleai."
 icon: "terminal"
 ---
 
-Codex CLI cần cả provider tùy chỉnh trong `~/.codex/config.toml` và API key trong `~/.codex/auth.json`.
+Codex CLI cần cả provider tùy chỉnh trong file `config.toml` và API key trong file `auth.json`.
 
 ## Cài đặt Codex CLI
+
+### macOS và Linux
 
 ```bash
 npm install -g @openai/codex
 ```
 
-## `~/.codex/config.toml`
+Dùng:
+
+- `~/.codex/config.toml`
+- `~/.codex/auth.json`
+
+### Windows PowerShell
+
+```powershell
+npm install -g @openai/codex
+```
+
+Dùng:
+
+- `%USERPROFILE%\.codex\config.toml`
+- `%USERPROFILE%\.codex\auth.json`
+
+## `config.toml`
 
 ```toml
 personality = "pragmatic"
@@ -25,7 +43,7 @@ base_url = "http://160.187.0.165:8138/v1"
 wire_api = "responses"
 ```
 
-## `~/.codex/auth.json`
+## `auth.json`
 
 ```json
 {
@@ -37,7 +55,7 @@ wire_api = "responses"
 
 1. `model_provider` phải khớp chính xác với tên provider block là `appleai`
 2. `base_url` phải trỏ tới `http://160.187.0.165:8138/v1`
-3. `OPENAI_API_KEY` trong `~/.codex/auth.json` phải chứa đúng API key
+3. `OPENAI_API_KEY` trong file `auth.json` của bạn phải chứa đúng API key
 4. Hãy dùng dấu ngoặc kép ASCII bình thường trong TOML, không dùng smart quotes
 
 ## Chạy thử
@@ -46,4 +64,4 @@ wire_api = "responses"
 codex
 ```
 
-Nếu Codex CLI khởi động nhưng không trả lời được, hãy kiểm tra lại cả cấu hình provider trong `~/.codex/config.toml` và API key trong `~/.codex/auth.json`.
+Nếu Codex CLI khởi động nhưng không trả lời được, hãy kiểm tra lại cả cấu hình provider và API key trong đúng file của hệ điều hành bạn đang dùng.

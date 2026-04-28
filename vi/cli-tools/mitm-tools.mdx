@@ -6,6 +6,13 @@ icon: "route"
 
 Một số sản phẩm không cho bạn đặt custom base URL, auth header hoặc routed model trực tiếp. Với các công cụ đó, hãy dùng một lớp MITM hoặc proxy cục bộ thay vì các hướng dẫn thiết lập thông thường.
 
+## Ghi chú theo hệ điều hành
+
+- macOS: Hãy tin cậy chứng chỉ cục bộ trong Keychain nếu proxy của bạn cần chặn TLS
+- Linux: Hãy tin cậy chứng chỉ cục bộ trong CA store mà ứng dụng hoặc trình duyệt đang dùng
+- Windows: Hãy tin cậy chứng chỉ cục bộ trong Windows Certificate Manager trước khi kiểm tra công cụ
+- WSL: Hãy nhớ rằng trust certificate trong WSL và trust trong Windows là hai thứ tách biệt
+
 ## Chỉ dùng luồng này khi cần
 
 Luồng này nặng hơn cấu hình provider trực tiếp. Hãy bắt đầu với các hướng dẫn trực tiếp trước, rồi chỉ chuyển sang đây khi công cụ chặn phần custom endpoint settings.

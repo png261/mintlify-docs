@@ -19,11 +19,28 @@ Use the raw host only for tools that reject a versioned path in the base URL fie
 
 ## Recommended environment variables
 
+### macOS and Linux
+
 ```bash
 export APPLEAI_BASE_URL=https://api.appleai.codes/v1
 export APPLEAI_API_KEY=YOUR_APPLEAI_API_KEY
 export APPLEAI_MODEL=anthropic/claude-sonnet-4
 ```
+
+### Windows PowerShell
+
+```powershell
+$env:APPLEAI_BASE_URL="https://api.appleai.codes/v1"
+$env:APPLEAI_API_KEY="YOUR_APPLEAI_API_KEY"
+$env:APPLEAI_MODEL="anthropic/claude-sonnet-4"
+```
+
+## Common config paths by OS
+
+- macOS: Most CLI configs in this docs set live under `~/.tool-name/`
+- Linux: Use the same `~/.tool-name/` convention unless a tool says otherwise
+- Windows: Use `%USERPROFILE%\.tool-name\`
+- WSL: Treat WSL as Linux and keep the config inside your WSL home directory
 
 ## Model path examples
 
@@ -37,12 +54,21 @@ Use the exact route names your account exposes. Keep the trailing model path the
 
 ## Health check
 
+### macOS and Linux
+
 ```bash
 curl https://api.appleai.codes/v1/models \
   -H "Authorization: Bearer $APPLEAI_API_KEY"
 ```
 
-If you get a successful response, the endpoint, key, and network path are working.
+### Windows PowerShell
+
+```powershell
+curl.exe https://api.appleai.codes/v1/models `
+  -H "Authorization: Bearer $env:APPLEAI_API_KEY"
+```
+
+If you get a successful response, the endpoint, key, and network path are working for your current shell.
 
 ## Common differences between tools
 

@@ -4,15 +4,33 @@ description: "Configure Codex CLI with a custom appleai provider."
 icon: "terminal"
 ---
 
-Codex CLI needs both a custom provider in `~/.codex/config.toml` and an API key in `~/.codex/auth.json`.
+Codex CLI needs both a custom provider in its `config.toml` file and an API key in its `auth.json` file.
 
 ## Install Codex CLI
+
+### macOS and Linux
 
 ```bash
 npm install -g @openai/codex
 ```
 
-## `~/.codex/config.toml`
+Use:
+
+- `~/.codex/config.toml`
+- `~/.codex/auth.json`
+
+### Windows PowerShell
+
+```powershell
+npm install -g @openai/codex
+```
+
+Use:
+
+- `%USERPROFILE%\.codex\config.toml`
+- `%USERPROFILE%\.codex\auth.json`
+
+## `config.toml`
 
 ```toml
 personality = "pragmatic"
@@ -21,11 +39,11 @@ model_provider = "appleai"
 
 [model_providers.appleai]
 name = "appleai"
-base_url = "http://160.187.0.165:8138/v1"
+base_url = "https://appleai.codes/v1"
 wire_api = "responses"
 ```
 
-## `~/.codex/auth.json`
+## `auth.json`
 
 ```json
 {
@@ -37,7 +55,7 @@ wire_api = "responses"
 
 1. `model_provider` matches the provider block name exactly as `appleai`
 2. `base_url` points to `http://160.187.0.165:8138/v1`
-3. `OPENAI_API_KEY` in `~/.codex/auth.json` contains the correct API key
+3. `OPENAI_API_KEY` in your `auth.json` file contains the correct API key
 4. Use normal ASCII quotes in TOML, not smart quotes
 
 ## Launch
@@ -46,4 +64,4 @@ wire_api = "responses"
 codex
 ```
 
-If Codex CLI starts but fails to answer, recheck both the provider settings in `~/.codex/config.toml` and the API key in `~/.codex/auth.json`.
+If Codex CLI starts but fails to answer, recheck both the provider settings in your `config.toml` file and the API key in your `auth.json` file.

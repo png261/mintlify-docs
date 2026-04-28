@@ -6,6 +6,13 @@ icon: "route"
 
 Some products do not let you set a custom base URL, auth header, or routed model directly. For those tools, use a local MITM or proxy layer instead of the normal setup guides.
 
+## OS notes
+
+- macOS: Trust the local certificate in Keychain if your proxy requires TLS interception
+- Linux: Trust the local certificate in the CA store used by the app or browser that makes the request
+- Windows: Trust the local certificate in Windows Certificate Manager before you test the tool
+- WSL: Remember that certificate trust inside WSL and trust in Windows are separate
+
 ## Use this path only when needed
 
 This flow is heavier than a direct provider configuration. Start with the direct guides first and move here only when the tool blocks custom endpoint settings.

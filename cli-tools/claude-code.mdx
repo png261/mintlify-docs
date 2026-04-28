@@ -8,11 +8,21 @@ Claude Code works well when you point its Anthropic-compatible settings at `appl
 
 ## Install Claude Code
 
+### macOS and Linux
+
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
 
 Run `claude` once so the config directory exists, then update `~/.claude/settings.json`.
+
+### Windows PowerShell
+
+```powershell
+npm install -g @anthropic-ai/claude-code
+```
+
+Run `claude` once so the config directory exists, then update `%USERPROFILE%\.claude\settings.json`.
 
 ## Example config
 
@@ -41,4 +51,6 @@ Run `claude` once so the config directory exists, then update `~/.claude/setting
 claude
 ```
 
-If Claude Code starts but cannot create a session, recheck the API key and the default Sonnet model mapping first.
+On Windows, run the same `claude` command in PowerShell.
+
+If Claude Code starts but cannot create a session, recheck the API key, the config file path for your OS, and the default Sonnet model mapping first.

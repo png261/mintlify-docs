@@ -6,12 +6,29 @@ icon: "rocket"
 
 Use this page when you want the fastest path to a working setup.
 
+## Choose your OS
+
+- macOS: Use Terminal or iTerm and store tool configs under `~/.tool-name/`
+- Linux: Use your normal shell and the same `~/.tool-name/` config layout
+- Windows: Use PowerShell and store tool configs under `%USERPROFILE%\.tool-name\`
+- WSL: Follow the Linux examples inside your WSL environment
+
 ## Reuse these values everywhere
+
+### macOS and Linux
 
 ```bash
 export APPLEAI_BASE_URL=https://api.appleai.codes/v1
 export APPLEAI_API_KEY=YOUR_APPLEAI_API_KEY
 export APPLEAI_MODEL=anthropic/claude-sonnet-4
+```
+
+### Windows PowerShell
+
+```powershell
+$env:APPLEAI_BASE_URL="https://api.appleai.codes/v1"
+$env:APPLEAI_API_KEY="YOUR_APPLEAI_API_KEY"
+$env:APPLEAI_MODEL="anthropic/claude-sonnet-4"
 ```
 
 ## Basic flow
@@ -23,12 +40,21 @@ export APPLEAI_MODEL=anthropic/claude-sonnet-4
 
 ## Verify the connection first
 
+### macOS and Linux
+
 ```bash
 curl https://api.appleai.codes/v1/models \
   -H "Authorization: Bearer $APPLEAI_API_KEY"
 ```
 
-If that call succeeds, your key is valid and the base URL is reachable.
+### Windows PowerShell
+
+```powershell
+curl.exe https://api.appleai.codes/v1/models `
+  -H "Authorization: Bearer $env:APPLEAI_API_KEY"
+```
+
+If that call succeeds, your key is valid and the base URL is reachable on your current OS and shell.
 
 ## Recommended order
 

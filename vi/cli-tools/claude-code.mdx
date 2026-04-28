@@ -8,11 +8,21 @@ Claude Code hoạt động tốt khi bạn trỏ phần cấu hình tương thí
 
 ## Cài đặt Claude Code
 
+### macOS và Linux
+
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
 
 Hãy chạy `claude` một lần để thư mục cấu hình được tạo, sau đó cập nhật `~/.claude/settings.json`.
+
+### Windows PowerShell
+
+```powershell
+npm install -g @anthropic-ai/claude-code
+```
+
+Hãy chạy `claude` một lần để thư mục cấu hình được tạo, sau đó cập nhật `%USERPROFILE%\.claude\settings.json`.
 
 ## Ví dụ cấu hình
 
@@ -41,4 +51,6 @@ Hãy chạy `claude` một lần để thư mục cấu hình được tạo, sa
 claude
 ```
 
-Nếu Claude Code khởi động nhưng không tạo được session, hãy kiểm tra lại API key và model Sonnet mặc định trước tiên.
+Trên Windows, hãy chạy cùng lệnh `claude` trong PowerShell.
+
+Nếu Claude Code khởi động nhưng không tạo được session, hãy kiểm tra lại API key, đường dẫn file cấu hình theo hệ điều hành của bạn và model Sonnet mặc định trước tiên.

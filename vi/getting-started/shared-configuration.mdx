@@ -19,11 +19,28 @@ Chỉ dùng host gốc cho các công cụ không chấp nhận đường dẫn 
 
 ## Biến môi trường khuyên dùng
 
+### macOS và Linux
+
 ```bash
 export APPLEAI_BASE_URL=https://api.appleai.codes/v1
 export APPLEAI_API_KEY=YOUR_APPLEAI_API_KEY
 export APPLEAI_MODEL=anthropic/claude-sonnet-4
 ```
+
+### Windows PowerShell
+
+```powershell
+$env:APPLEAI_BASE_URL="https://api.appleai.codes/v1"
+$env:APPLEAI_API_KEY="YOUR_APPLEAI_API_KEY"
+$env:APPLEAI_MODEL="anthropic/claude-sonnet-4"
+```
+
+## Đường dẫn cấu hình thường gặp theo hệ điều hành
+
+- macOS: Phần lớn cấu hình CLI trong bộ tài liệu này nằm dưới `~/.tool-name/`
+- Linux: Dùng cùng quy ước `~/.tool-name/` trừ khi công cụ ghi rõ khác đi
+- Windows: Dùng `%USERPROFILE%\.tool-name\`
+- WSL: Hãy xem WSL như Linux và lưu cấu hình trong thư mục home của WSL
 
 ## Ví dụ model path
 
@@ -37,12 +54,21 @@ Hãy dùng đúng tên route mà tài khoản của bạn hỗ trợ. Giữ nguy
 
 ## Kiểm tra tình trạng endpoint
 
+### macOS và Linux
+
 ```bash
 curl https://api.appleai.codes/v1/models \
   -H "Authorization: Bearer $APPLEAI_API_KEY"
 ```
 
-Nếu bạn nhận được phản hồi thành công, endpoint, key và đường mạng đều đang hoạt động.
+### Windows PowerShell
+
+```powershell
+curl.exe https://api.appleai.codes/v1/models `
+  -H "Authorization: Bearer $env:APPLEAI_API_KEY"
+```
+
+Nếu bạn nhận được phản hồi thành công, endpoint, key và đường mạng đều đang hoạt động trong shell hiện tại của bạn.
 
 ## Những khác biệt thường gặp giữa các công cụ
 
