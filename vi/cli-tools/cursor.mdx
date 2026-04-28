@@ -1,0 +1,26 @@
+---
+title: "Cursor"
+description: "Dùng luồng custom OpenAI endpoint của Cursor với appleai.codes."
+icon: "desktop"
+---
+
+Cursor có thể dùng `appleai.codes` khi bạn cung cấp một base URL tương thích OpenAI có thể truy cập từ bên ngoài cùng API key của bạn.
+
+## Các bước thiết lập
+
+1. Mở **Cursor Settings**.
+2. Vào **Models** hoặc **Model Providers**.
+3. Bật luồng provider tương thích OpenAI.
+4. Đặt base URL thành `https://api.appleai.codes/v1`.
+5. Dán `YOUR_APPLEAI_API_KEY`.
+6. Thêm model path đã được route mà bạn muốn dùng, ví dụ `anthropic/claude-sonnet-4` hoặc `openai/gpt-5`.
+
+## Kiểm tra khuyên dùng
+
+- Dùng đầy đủ URL `https://api.appleai.codes/v1`, không chỉ host
+- Đảm bảo Cursor có thể truy cập endpoint từ mạng của bạn
+- Giữ model path giống hệt route bạn đã kiểm tra bằng `curl`
+
+## Khi nào nên dùng hướng dẫn khác
+
+Nếu bản Cursor của bạn không hiển thị phần custom provider settings, hãy chuyển sang công cụ có file cấu hình trực tiếp hoặc dùng luồng [Công cụ chỉ hỗ trợ MITM](/vi/cli-tools/mitm-tools).

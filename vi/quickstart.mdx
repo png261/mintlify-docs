@@ -1,0 +1,70 @@
+---
+title: "Bắt đầu nhanh"
+description: "Dùng một base URL, một API key và một model path để kết nối công cụ đầu tiên."
+icon: "rocket"
+---
+
+Hãy dùng trang này khi bạn muốn có cách thiết lập nhanh nhất.
+
+## Dùng lại các giá trị này ở mọi nơi
+
+```bash
+export APPLEAI_BASE_URL=https://api.appleai.codes/v1
+export APPLEAI_API_KEY=YOUR_APPLEAI_API_KEY
+export APPLEAI_MODEL=anthropic/claude-sonnet-4
+```
+
+## Luồng cơ bản
+
+1. Tạo hoặc sao chép một API key của `appleai.codes`.
+2. Chọn một model path đã được route như `anthropic/claude-sonnet-4` hoặc `openai/gpt-5`.
+3. Mở hướng dẫn cho công cụ bạn dùng và dán các giá trị dùng chung vào phần cấu hình.
+4. Chạy một request đơn giản để xác nhận endpoint và key hoạt động cùng nhau.
+
+## Kiểm tra kết nối trước
+
+```bash
+curl https://api.appleai.codes/v1/models \
+  -H "Authorization: Bearer $APPLEAI_API_KEY"
+```
+
+Nếu lệnh này chạy thành công, key của bạn hợp lệ và base URL có thể truy cập được.
+
+## Thứ tự nên làm
+
+1. Bắt đầu với **Claude Code**, **Codex CLI** hoặc **OpenCode**. Các công cụ này có file cấu hình trực tiếp.
+2. Chuyển sang **Cursor**, **Cline**, **Continue** hoặc **Roo** khi bạn muốn tích hợp trong editor.
+3. Chỉ dùng luồng **Công cụ chỉ hỗ trợ MITM** khi sản phẩm không cho bạn nhập custom base URL.
+
+## Chọn hướng dẫn
+
+<Columns cols={2}>
+  <Card
+    title="Claude Code"
+    icon="wand-magic-sparkles"
+    href="/vi/cli-tools/claude-code"
+  >
+    Cấu hình các biến môi trường tương thích Anthropic.
+  </Card>
+  <Card
+    title="Codex CLI"
+    icon="terminal"
+    href="/vi/cli-tools/codex-cli"
+  >
+    Thêm provider tương thích OpenAI và API key.
+  </Card>
+  <Card
+    title="OpenCode"
+    icon="code"
+    href="/vi/cli-tools/opencode"
+  >
+    Khai báo một provider trỏ tới `appleai.codes`.
+  </Card>
+  <Card
+    title="Cấu hình dùng chung"
+    icon="sliders"
+    href="/vi/getting-started/shared-configuration"
+  >
+    Xem lại các giá trị và định dạng route mà từng hướng dẫn cần.
+  </Card>
+</Columns>

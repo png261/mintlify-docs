@@ -1,0 +1,44 @@
+---
+title: "OpenCode"
+description: "Đăng ký appleai.codes làm provider tương thích OpenAI trong OpenCode."
+icon: "code"
+---
+
+OpenCode hoạt động tốt nhất khi bạn khai báo một provider block riêng và giữ rõ ràng routed model path.
+
+## Ví dụ cấu hình
+
+Hãy thêm một provider block như sau vào cấu hình OpenCode:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "appleai": {
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "name": "AppleAI",
+        "apiKey": "YOUR_APPLEAI_API_KEY",
+        "baseURL": "https://api.appleai.codes/v1"
+      },
+      "models": {
+        "claude-sonnet-4": {
+          "name": "anthropic/claude-sonnet-4"
+        },
+        "gpt-5": {
+          "name": "openai/gpt-5"
+        }
+      }
+    }
+  },
+  "model": "appleai/claude-sonnet-4"
+}
+```
+
+## Những gì cần xác minh
+
+1. Tên provider và tiền tố model phải khớp với nhau
+2. `baseURL` phải bao gồm `/v1`
+3. Mỗi alias model của OpenCode phải map đúng tới model route upstream mà bạn muốn dùng
+
+Nếu bạn đổi tên provider block, hãy cập nhật phần tiền tố đầu trong trường `model` cho khớp.

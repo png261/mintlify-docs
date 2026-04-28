@@ -1,0 +1,21 @@
+---
+title: "Lưu ý"
+description: "Hiểu rõ các đánh đổi về relay, chính sách và hỗ trợ trước khi đưa lưu lượng thật vào sử dụng."
+icon: "triangle-exclamation"
+---
+
+`appleai.codes` là một lớp relay của bên thứ ba. Nó không phải là nhà cung cấp model gốc.
+
+## Điều đó có nghĩa là gì
+
+- Hành vi model, giới hạn và sự cố ngừng dịch vụ upstream vẫn đến từ nhà cung cấp ban đầu
+- Tổ chức của bạn nên xem xét cách xử lý dữ liệu trước khi gửi prompt nhạy cảm hoặc mã nguồn
+- Đội hỗ trợ của vendor có thể yêu cầu bạn tái hiện lỗi trên API upstream trực tiếp
+
+## Cách vận hành khuyên dùng
+
+1. Hãy kiểm tra một routed model bằng các prompt nhỏ trước
+2. Giữ sẵn phương án fallback tới upstream trực tiếp cho các luồng công việc quan trọng
+3. Kiểm tra lại sau mỗi lần CLI hoặc editor agent có thay đổi lớn
+
+Hãy dùng relay khi nó giúp bạn về routing, kiểm soát chi phí hoặc tương thích công cụ. Đừng xem nó là bản thay thế không rủi ro cho mọi luồng làm việc với provider upstream.

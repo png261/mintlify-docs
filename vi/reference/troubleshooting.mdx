@@ -1,0 +1,33 @@
+---
+title: "Khắc phục sự cố"
+description: "Sửa nhanh những lỗi thiết lập thường gặp nhất."
+icon: "life-ring"
+---
+
+## 401 Unauthorized
+
+- Xác nhận key có mặt đầy đủ và không bị cắt mất ký tự
+- Đảm bảo công cụ gửi `Authorization: Bearer YOUR_APPLEAI_API_KEY`
+- Chạy lại lệnh kiểm tra `curl` với đúng key đó
+
+## 404 Not Found
+
+- Kiểm tra xem công cụ cần `https://api.appleai.codes/v1` hay host gốc
+- Xác nhận client không tự thêm thừa một `/v1`
+- Kiểm tra công cụ không đang gọi hostname mặc định của vendor
+
+## Model not found
+
+- Đảm bảo tên route hoàn toàn chính xác
+- Xóa các alias cục bộ cũ rồi khởi động lại công cụ
+- Kiểm tra cùng route đó trên một client khác trước khi kết luận provider đang lỗi
+
+## Lỗi streaming hoặc không tạo được session
+
+- Cập nhật CLI hoặc extension trước
+- Thử lại với một model route đơn giản hơn
+- Kiểm tra xem client có dùng giao thức cần provider hỗ trợ trực tiếp hay không
+
+## Công cụ bỏ qua cấu hình custom
+
+Nếu sản phẩm vẫn dùng endpoint mặc định của vendor, hãy chuyển sang luồng [Công cụ chỉ hỗ trợ MITM](/vi/cli-tools/mitm-tools).

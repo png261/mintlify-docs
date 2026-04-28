@@ -1,0 +1,101 @@
+---
+title: "Hướng dẫn thiết lập công cụ CLI"
+description: "Kết nối các công cụ lập trình của bạn với appleai.codes qua một endpoint tương thích OpenAI."
+icon: "terminal"
+---
+
+`appleai.codes` cung cấp một endpoint cho các công cụ lập trình của bạn. Các hướng dẫn này chỉ cho bạn cách kết nối Claude Code, Codex CLI, Cursor, OpenCode, Continue, Roo và các client tương thích OpenAI khác mà không phải lặp lại cùng một cấu hình ở mỗi ứng dụng.
+
+Base URL dùng cho mọi công cụ: `https://api.appleai.codes/v1`
+
+## Bắt đầu tại đây
+
+<Columns cols={2}>
+  <Card
+    title="Bắt đầu nhanh"
+    icon="rocket"
+    href="/vi/quickstart"
+  >
+    Sao chép các giá trị dùng chung và thiết lập công cụ đầu tiên chỉ trong vài phút.
+  </Card>
+  <Card
+    title="Cấu hình dùng chung"
+    icon="sliders"
+    href="/vi/getting-started/shared-configuration"
+  >
+    Dùng lại cùng base URL, API key và định dạng model path trong mọi hướng dẫn.
+  </Card>
+</Columns>
+
+## Hướng dẫn thiết lập CLI
+
+<Columns cols={2}>
+  <Card
+    title="Claude Code"
+    icon="wand-magic-sparkles"
+    href="/vi/cli-tools/claude-code"
+  >
+    Dùng các biến môi trường tương thích Anthropic trong `~/.claude/settings.json`.
+  </Card>
+  <Card
+    title="Codex CLI"
+    icon="terminal"
+    href="/vi/cli-tools/codex-cli"
+  >
+    Thêm một provider tương thích OpenAI vào `~/.codex/config.toml`.
+  </Card>
+  <Card
+    title="OpenCode"
+    icon="code"
+    href="/vi/cli-tools/opencode"
+  >
+    Khai báo provider tương thích OpenAI và model được route trong một file cấu hình.
+  </Card>
+  <Card
+    title="Cursor"
+    icon="desktop"
+    href="/vi/cli-tools/cursor"
+  >
+    Dùng luồng custom OpenAI endpoint của Cursor với base URL có thể truy cập từ bên ngoài.
+  </Card>
+  <Card
+    title="Cline, Continue và Roo"
+    icon="toolbox"
+    href="/vi/cli-tools/cline-continue-roo"
+  >
+    Áp dụng cùng cấu hình provider cho các editor agent hỗ trợ custom endpoint.
+  </Card>
+  <Card
+    title="Công cụ chỉ hỗ trợ MITM"
+    icon="route"
+    href="/vi/cli-tools/mitm-tools"
+  >
+    Dùng phương án dự phòng cho các công cụ không có giao diện cấu hình custom provider.
+  </Card>
+</Columns>
+
+## Tham khảo
+
+<Columns cols={3}>
+  <Card
+    title="Model path"
+    icon="sitemap"
+    href="/vi/reference/model-paths"
+  >
+    Giữ tên route nhất quán khi bạn so sánh nhiều công cụ.
+  </Card>
+  <Card
+    title="Khắc phục sự cố"
+    icon="life-ring"
+    href="/vi/reference/troubleshooting"
+  >
+    Sửa nhanh các lỗi 401, 404, model và streaming thường gặp.
+  </Card>
+  <Card
+    title="Lưu ý"
+    icon="triangle-exclamation"
+    href="/vi/reference/notice"
+  >
+    Hiểu rõ các đánh đổi về relay và chính sách trước khi đưa lưu lượng thật vào sử dụng.
+  </Card>
+</Columns>

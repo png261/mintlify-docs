@@ -9,9 +9,10 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "Docs",
+        "language": "en",
+        "default": true,
         "groups": [
           {
             "group": "Getting started",
@@ -40,41 +41,71 @@
               "reference/notice"
             ]
           }
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Quickstart",
-          "href": "/quickstart",
-          "icon": "rocket"
-        },
-        {
-          "anchor": "Notice",
-          "href": "/reference/notice",
-          "icon": "triangle-exclamation"
+        ],
+        "navbar": {
+          "links": [
+            {
+              "label": "GitHub",
+              "href": "https://github.com/png261/mintlify-docs"
+            }
+          ],
+          "primary": {
+            "type": "button",
+            "label": "Quickstart",
+            "href": "/quickstart"
+          }
         }
-      ]
-    }
+      },
+      {
+        "language": "vi",
+        "groups": [
+          {
+            "group": "Bắt đầu",
+            "pages": [
+              "vi/index",
+              "vi/quickstart",
+              "vi/getting-started/shared-configuration"
+            ]
+          },
+          {
+            "group": "Hướng dẫn CLI",
+            "pages": [
+              "vi/cli-tools/claude-code",
+              "vi/cli-tools/codex-cli",
+              "vi/cli-tools/opencode",
+              "vi/cli-tools/cursor",
+              "vi/cli-tools/cline-continue-roo",
+              "vi/cli-tools/mitm-tools"
+            ]
+          },
+          {
+            "group": "Tham khảo",
+            "pages": [
+              "vi/reference/model-paths",
+              "vi/reference/troubleshooting",
+              "vi/reference/notice"
+            ]
+          }
+        ],
+        "navbar": {
+          "links": [
+            {
+              "label": "GitHub",
+              "href": "https://github.com/png261/mintlify-docs"
+            }
+          ],
+          "primary": {
+            "type": "button",
+            "label": "Bắt đầu",
+            "href": "/vi/quickstart"
+          }
+        }
+      }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg",
-    "href": "/"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "GitHub",
-        "href": "https://github.com/png261/mintlify-docs"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Quickstart",
-      "href": "/quickstart"
-    }
+    "dark": "/logo/dark.svg"
   },
   "contextual": {
     "options": [

@@ -1,0 +1,44 @@
+---
+title: "Claude Code"
+description: "Kết nối Claude Code với appleai.codes bằng cấu hình tương thích Anthropic."
+icon: "wand-magic-sparkles"
+---
+
+Claude Code hoạt động tốt khi bạn trỏ phần cấu hình tương thích Anthropic của nó tới `appleai.codes`.
+
+## Cài đặt Claude Code
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+Hãy chạy `claude` một lần để thư mục cấu hình được tạo, sau đó cập nhật `~/.claude/settings.json`.
+
+## Ví dụ cấu hình
+
+```json
+{
+  "hasCompletedOnboarding": true,
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://api.appleai.codes/v1",
+    "ANTHROPIC_AUTH_TOKEN": "YOUR_APPLEAI_API_KEY",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "anthropic/claude-opus-4.1",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "anthropic/claude-sonnet-4",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "anthropic/claude-3.5-haiku"
+  }
+}
+```
+
+## Những gì cần xác minh
+
+1. `ANTHROPIC_BASE_URL` trỏ tới `https://api.appleai.codes/v1`
+2. `ANTHROPIC_AUTH_TOKEN` chứa API key hợp lệ của `appleai.codes`
+3. Các alias model mặc định của bạn map đúng tới model path được route mà tài khoản có thể dùng
+
+## Chạy thử
+
+```bash
+claude
+```
+
+Nếu Claude Code khởi động nhưng không tạo được session, hãy kiểm tra lại API key và model Sonnet mặc định trước tiên.

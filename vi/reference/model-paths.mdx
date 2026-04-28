@@ -1,0 +1,29 @@
+---
+title: "Model path"
+description: "Dùng routed model path nhất quán trên nhiều công cụ."
+icon: "sitemap"
+---
+
+Hầu hết công cụ trong bộ tài liệu này đều mong đợi một routed model path theo định dạng `provider/model-id`.
+
+## Ví dụ phổ biến
+
+| Provider | Route ví dụ |
+| --- | --- |
+| Anthropic | `anthropic/claude-sonnet-4` |
+| Anthropic | `anthropic/claude-opus-4.1` |
+| OpenAI | `openai/gpt-5` |
+| Google | `google/gemini-2.5-pro` |
+| xAI | `xai/grok-4` |
+
+## Giữ tên route ổn định
+
+Khi bạn so sánh nhiều công cụ, hãy giữ nguyên routed model path. Như vậy bạn sẽ dễ tách biệt hành vi của model với hành vi của client.
+
+## Khác biệt theo từng công cụ
+
+- Hầu hết công cụ dùng route thô, ví dụ `anthropic/claude-sonnet-4`
+- Một số wrapper provider thêm alias cục bộ phía trước, ví dụ `appleai/claude-sonnet-4`
+- Một số công cụ cache danh sách model và cần khởi động lại sau khi bạn đổi route
+
+Hãy dùng đúng tên mà tài khoản của bạn hỗ trợ. Nếu một route bị lỗi, hãy kiểm tra lại bằng lệnh `curl` trong [Cấu hình dùng chung](/vi/getting-started/shared-configuration).

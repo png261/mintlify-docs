@@ -1,0 +1,28 @@
+---
+title: "Công cụ chỉ hỗ trợ MITM"
+description: "Dùng phương án dự phòng cho các sản phẩm không có luồng custom provider tiêu chuẩn."
+icon: "route"
+---
+
+Một số sản phẩm không cho bạn đặt custom base URL, auth header hoặc routed model trực tiếp. Với các công cụ đó, hãy dùng một lớp MITM hoặc proxy cục bộ thay vì các hướng dẫn thiết lập thông thường.
+
+## Chỉ dùng luồng này khi cần
+
+Luồng này nặng hơn cấu hình provider trực tiếp. Hãy bắt đầu với các hướng dẫn trực tiếp trước, rồi chỉ chuyển sang đây khi công cụ chặn phần custom endpoint settings.
+
+## Luồng MITM điển hình
+
+1. Khởi động dịch vụ proxy cục bộ để chuyển tiếp request tới `appleai.codes`.
+2. Tin cậy chứng chỉ cục bộ hoặc lớp network interception nếu công cụ yêu cầu.
+3. Map tên model upstream mà công cụ mong đợi sang model path đã được route trên `appleai.codes`.
+4. Xác nhận một request chạy thành công trước khi dùng công cụ cho công việc thật.
+
+## Những ứng viên phù hợp cho luồng này
+
+- Các bề mặt chat của GitHub Copilot không cho cấu hình provider
+- Kiro hoặc các IDE agent được host sẵn mà hardcode API upstream
+- Các sản phẩm chỉ chấp nhận hostname mặc định của nhà cung cấp
+
+## Cảnh báo vận hành
+
+Cấu hình MITM dễ vỡ hơn cấu hình provider trực tiếp. Chúng có thể hỏng sau khi công cụ được cập nhật, chứng chỉ thay đổi hoặc giao thức upstream đổi khác. Hãy xem đây là phương án dự phòng, không phải lựa chọn đầu tiên.

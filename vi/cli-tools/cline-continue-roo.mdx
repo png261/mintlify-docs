@@ -1,0 +1,45 @@
+---
+title: "Cline, Continue và Roo"
+description: "Áp dụng cùng cấu hình tương thích OpenAI cho các editor agent hỗ trợ custom endpoint."
+icon: "toolbox"
+---
+
+Các công cụ này thường dùng cùng routed model path, nhưng tên nhãn trong giao diện sẽ khác nhau đôi chút giữa từng sản phẩm.
+
+## Cline và Roo Code
+
+Hãy dùng tùy chọn provider tương thích OpenAI và điền:
+
+- Base URL: `https://api.appleai.codes/v1`
+- API key: `YOUR_APPLEAI_API_KEY`
+- Model: `anthropic/claude-sonnet-4`
+
+Nếu Roo Code không chấp nhận URL có phiên bản, hãy thử lại với host gốc: `https://api.appleai.codes`
+
+## Continue
+
+Hãy thêm một model block như sau vào cấu hình Continue:
+
+```json
+{
+  "models": [
+    {
+      "title": "Claude Sonnet 4 qua AppleAI",
+      "provider": "openai",
+      "model": "anthropic/claude-sonnet-4",
+      "apiBase": "https://api.appleai.codes/v1",
+      "apiKey": "YOUR_APPLEAI_API_KEY"
+    }
+  ]
+}
+```
+
+## Kilo Code và các fork tương tự
+
+Nếu extension đó là một fork theo kiểu Cline, ba giá trị sau thường sẽ hoạt động:
+
+- Base URL
+- API key
+- Routed model path
+
+Khi sản phẩm chỉ hỗ trợ nhập host gốc, hãy dùng `https://api.appleai.codes` và để client tự thêm `/v1`.

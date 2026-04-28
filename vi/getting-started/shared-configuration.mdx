@@ -1,0 +1,54 @@
+---
+title: "Cấu hình dùng chung"
+description: "Dùng cùng endpoint, auth header và định dạng model path trong mọi hướng dẫn."
+icon: "sliders"
+---
+
+Mọi hướng dẫn trong bộ tài liệu này đều dùng lại cùng các giá trị cốt lõi.
+
+## Các giá trị chung
+
+| Thiết lập | Giá trị |
+| --- | --- |
+| Base URL | `https://api.appleai.codes/v1` |
+| Host gốc | `https://api.appleai.codes` |
+| Auth header | `Authorization: Bearer YOUR_APPLEAI_API_KEY` |
+| Định dạng model | `provider/model-id` |
+
+Chỉ dùng host gốc cho các công cụ không chấp nhận đường dẫn có phiên bản trong trường base URL.
+
+## Biến môi trường khuyên dùng
+
+```bash
+export APPLEAI_BASE_URL=https://api.appleai.codes/v1
+export APPLEAI_API_KEY=YOUR_APPLEAI_API_KEY
+export APPLEAI_MODEL=anthropic/claude-sonnet-4
+```
+
+## Ví dụ model path
+
+- `anthropic/claude-sonnet-4`
+- `anthropic/claude-opus-4.1`
+- `openai/gpt-5`
+- `google/gemini-2.5-pro`
+- `xai/grok-4`
+
+Hãy dùng đúng tên route mà tài khoản của bạn hỗ trợ. Giữ nguyên phần model path cuối cùng giữa các công cụ nếu bạn muốn so sánh chất lượng đầu ra hoặc độ trễ.
+
+## Kiểm tra tình trạng endpoint
+
+```bash
+curl https://api.appleai.codes/v1/models \
+  -H "Authorization: Bearer $APPLEAI_API_KEY"
+```
+
+Nếu bạn nhận được phản hồi thành công, endpoint, key và đường mạng đều đang hoạt động.
+
+## Những khác biệt thường gặp giữa các công cụ
+
+- Một số công cụ cần base URL đầy đủ có phiên bản: `https://api.appleai.codes/v1`
+- Một số công cụ cần host gốc rồi tự thêm `/v1`
+- Một số công cụ chỉ cần routed model path, ví dụ `anthropic/claude-sonnet-4`
+- Một số công cụ thêm tiền tố provider cục bộ trước model, ví dụ `appleai/anthropic/claude-sonnet-4`
+
+Hãy xem hướng dẫn dành cho công cụ của bạn trước khi dán chuỗi model.
