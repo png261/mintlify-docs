@@ -1,10 +1,10 @@
 ---
 title: "Codex CLI"
-description: "Thêm appleai.codes làm provider tương thích OpenAI trong Codex CLI."
+description: "Cấu hình Codex CLI với provider tùy chỉnh appleai."
 icon: "terminal"
 ---
 
-Codex CLI dùng một provider block trong `~/.codex/config.toml` và một API key trong `~/.codex/auth.json`.
+Codex CLI cần cả provider tùy chỉnh trong `~/.codex/config.toml` và API key trong `~/.codex/auth.json`.
 
 ## Cài đặt Codex CLI
 
@@ -15,34 +15,30 @@ npm install -g @openai/codex
 ## `~/.codex/config.toml`
 
 ```toml
-model = "openai/gpt-5"
-model_provider = "AppleAI"
-model_reasoning_effort = "high"
-sandbox_mode = "workspace-write"
+personality = "pragmatic"
+model = "gpt-5.4"
+model_provider = "appleai"
 
-[model_providers.AppleAI]
-name = "AppleAI"
-base_url = "https://api.appleai.codes/v1"
+[model_providers.appleai]
+name = "appleai"
+base_url = "http://160.187.0.165:8138/v1"
 wire_api = "responses"
-
-[agents.subagent]
-model = "openai/gpt-5-mini"
 ```
 
 ## `~/.codex/auth.json`
 
 ```json
 {
-  "OPENAI_API_KEY": "YOUR_APPLEAI_API_KEY",
-  "auth_mode": "apikey"
+  "OPENAI_API_KEY": "YOUR_APPLEAI_API_KEY"
 }
 ```
 
 ## Những gì cần xác minh
 
-1. `model_provider` phải khớp chính xác với tên provider block
-2. `base_url` phải bao gồm `/v1`
-3. Model route đã chọn phải tồn tại trong tài khoản của bạn
+1. `model_provider` phải khớp chính xác với tên provider block là `appleai`
+2. `base_url` phải trỏ tới `http://160.187.0.165:8138/v1`
+3. `OPENAI_API_KEY` trong `~/.codex/auth.json` phải chứa đúng API key
+4. Hãy dùng dấu ngoặc kép ASCII bình thường trong TOML, không dùng smart quotes
 
 ## Chạy thử
 
@@ -50,4 +46,4 @@ model = "openai/gpt-5-mini"
 codex
 ```
 
-Nếu Codex CLI thấy provider nhưng không trả lời được, hãy kiểm tra model route đó bằng lệnh `curl` trong [Cấu hình dùng chung](/vi/getting-started/shared-configuration).
+Nếu Codex CLI khởi động nhưng không trả lời được, hãy kiểm tra lại cả cấu hình provider trong `~/.codex/config.toml` và API key trong `~/.codex/auth.json`.

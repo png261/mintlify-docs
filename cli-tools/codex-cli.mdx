@@ -1,10 +1,10 @@
 ---
 title: "Codex CLI"
-description: "Add appleai.codes as an OpenAI-compatible provider in Codex CLI."
+description: "Configure Codex CLI with a custom appleai provider."
 icon: "terminal"
 ---
 
-Codex CLI uses a provider block in `~/.codex/config.toml` and an API key in `~/.codex/auth.json`.
+Codex CLI needs both a custom provider in `~/.codex/config.toml` and an API key in `~/.codex/auth.json`.
 
 ## Install Codex CLI
 
@@ -15,34 +15,30 @@ npm install -g @openai/codex
 ## `~/.codex/config.toml`
 
 ```toml
-model = "openai/gpt-5"
-model_provider = "AppleAI"
-model_reasoning_effort = "high"
-sandbox_mode = "workspace-write"
+personality = "pragmatic"
+model = "gpt-5.4"
+model_provider = "appleai"
 
-[model_providers.AppleAI]
-name = "AppleAI"
-base_url = "https://api.appleai.codes/v1"
+[model_providers.appleai]
+name = "appleai"
+base_url = "http://160.187.0.165:8138/v1"
 wire_api = "responses"
-
-[agents.subagent]
-model = "openai/gpt-5-mini"
 ```
 
 ## `~/.codex/auth.json`
 
 ```json
 {
-  "OPENAI_API_KEY": "YOUR_APPLEAI_API_KEY",
-  "auth_mode": "apikey"
+  "OPENAI_API_KEY": "YOUR_APPLEAI_API_KEY"
 }
 ```
 
 ## What to verify
 
-1. `model_provider` matches the provider block name exactly
-2. `base_url` includes `/v1`
-3. The selected model route exists for your account
+1. `model_provider` matches the provider block name exactly as `appleai`
+2. `base_url` points to `http://160.187.0.165:8138/v1`
+3. `OPENAI_API_KEY` in `~/.codex/auth.json` contains the correct API key
+4. Use normal ASCII quotes in TOML, not smart quotes
 
 ## Launch
 
@@ -50,4 +46,4 @@ model = "openai/gpt-5-mini"
 codex
 ```
 
-If Codex CLI lists the provider but fails to answer, test the same model route with the `curl` check from [Shared configuration](/getting-started/shared-configuration).
+If Codex CLI starts but fails to answer, recheck both the provider settings in `~/.codex/config.toml` and the API key in `~/.codex/auth.json`.
