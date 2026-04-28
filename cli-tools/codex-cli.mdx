@@ -1,0 +1,53 @@
+---
+title: "Codex CLI"
+description: "Add appleai.codes as an OpenAI-compatible provider in Codex CLI."
+icon: "terminal"
+---
+
+Codex CLI uses a provider block in `~/.codex/config.toml` and an API key in `~/.codex/auth.json`.
+
+## Install Codex CLI
+
+```bash
+npm install -g @openai/codex
+```
+
+## `~/.codex/config.toml`
+
+```toml
+model = "openai/gpt-5"
+model_provider = "AppleAI"
+model_reasoning_effort = "high"
+sandbox_mode = "workspace-write"
+
+[model_providers.AppleAI]
+name = "AppleAI"
+base_url = "https://api.appleai.codes/v1"
+wire_api = "responses"
+
+[agents.subagent]
+model = "openai/gpt-5-mini"
+```
+
+## `~/.codex/auth.json`
+
+```json
+{
+  "OPENAI_API_KEY": "YOUR_APPLEAI_API_KEY",
+  "auth_mode": "apikey"
+}
+```
+
+## What to verify
+
+1. `model_provider` matches the provider block name exactly
+2. `base_url` includes `/v1`
+3. The selected model route exists for your account
+
+## Launch
+
+```bash
+codex
+```
+
+If Codex CLI lists the provider but fails to answer, test the same model route with the `curl` check from [Shared configuration](/getting-started/shared-configuration).

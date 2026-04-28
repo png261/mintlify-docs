@@ -1,0 +1,33 @@
+---
+title: "Troubleshooting"
+description: "Fix the most common setup failures quickly."
+icon: "life-ring"
+---
+
+## 401 Unauthorized
+
+- Confirm the key is present and not truncated
+- Make sure the tool sends `Authorization: Bearer YOUR_APPLEAI_API_KEY`
+- Re-run the `curl` health check with the same key
+
+## 404 Not Found
+
+- Check whether the tool expects `https://api.appleai.codes/v1` or the raw host
+- Confirm the client did not append an extra `/v1`
+- Verify the tool is not calling a vendor default hostname instead
+
+## Model not found
+
+- Make sure the route name is exact
+- Remove stale local aliases and restart the tool
+- Test the same route in another client before assuming the provider is down
+
+## Streaming or session start failures
+
+- Update the CLI or extension first
+- Retry with a simpler model route
+- Check whether the client uses a protocol that requires direct provider support
+
+## Tool ignores custom settings
+
+If the product keeps using its default vendor endpoint, switch to the [MITM-only tools](/cli-tools/mitm-tools) flow.

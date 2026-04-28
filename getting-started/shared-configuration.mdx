@@ -1,0 +1,54 @@
+---
+title: "Shared configuration"
+description: "Use the same endpoint, auth header, and model path format across every guide."
+icon: "sliders"
+---
+
+Every setup guide in this docs set reuses the same core values.
+
+## Common values
+
+| Setting | Value |
+| --- | --- |
+| Base URL | `https://api.appleai.codes/v1` |
+| Raw host | `https://api.appleai.codes` |
+| Auth header | `Authorization: Bearer YOUR_APPLEAI_API_KEY` |
+| Model format | `provider/model-id` |
+
+Use the raw host only for tools that reject a versioned path in the base URL field.
+
+## Recommended environment variables
+
+```bash
+export APPLEAI_BASE_URL=https://api.appleai.codes/v1
+export APPLEAI_API_KEY=YOUR_APPLEAI_API_KEY
+export APPLEAI_MODEL=anthropic/claude-sonnet-4
+```
+
+## Model path examples
+
+- `anthropic/claude-sonnet-4`
+- `anthropic/claude-opus-4.1`
+- `openai/gpt-5`
+- `google/gemini-2.5-pro`
+- `xai/grok-4`
+
+Use the exact route names your account exposes. Keep the trailing model path the same across tools when you compare output quality or latency.
+
+## Health check
+
+```bash
+curl https://api.appleai.codes/v1/models \
+  -H "Authorization: Bearer $APPLEAI_API_KEY"
+```
+
+If you get a successful response, the endpoint, key, and network path are working.
+
+## Common differences between tools
+
+- Some tools want the full versioned base URL: `https://api.appleai.codes/v1`
+- Some tools want the raw host and add `/v1` themselves
+- Some tools want only the routed model path, such as `anthropic/claude-sonnet-4`
+- Some tools prefix the model with a local provider name, such as `appleai/anthropic/claude-sonnet-4`
+
+Check the guide for your tool before you paste the model string.

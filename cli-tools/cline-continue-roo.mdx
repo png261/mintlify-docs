@@ -1,0 +1,45 @@
+---
+title: "Cline, Continue, and Roo"
+description: "Apply the same OpenAI-compatible settings to editor agents that support custom endpoints."
+icon: "toolbox"
+---
+
+These tools usually work with the same routed model paths, but the UI labels differ slightly between products.
+
+## Cline and Roo Code
+
+Use the OpenAI-compatible provider option and fill in:
+
+- Base URL: `https://api.appleai.codes/v1`
+- API key: `YOUR_APPLEAI_API_KEY`
+- Model: `anthropic/claude-sonnet-4`
+
+If Roo Code rejects the versioned URL, retry with the raw host: `https://api.appleai.codes`
+
+## Continue
+
+Add a model block like this to your Continue config:
+
+```json
+{
+  "models": [
+    {
+      "title": "Claude Sonnet 4 via AppleAI",
+      "provider": "openai",
+      "model": "anthropic/claude-sonnet-4",
+      "apiBase": "https://api.appleai.codes/v1",
+      "apiKey": "YOUR_APPLEAI_API_KEY"
+    }
+  ]
+}
+```
+
+## Kilo Code and similar forks
+
+If the extension is a Cline-style fork, the same three values usually work:
+
+- Base URL
+- API key
+- Routed model path
+
+When the product supports only raw host input, use `https://api.appleai.codes` and let the client append `/v1` itself.

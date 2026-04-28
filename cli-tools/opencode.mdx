@@ -1,0 +1,44 @@
+---
+title: "OpenCode"
+description: "Register appleai.codes as an OpenAI-compatible provider in OpenCode."
+icon: "code"
+---
+
+OpenCode works best when you define a dedicated provider block and keep the routed model path explicit.
+
+## Example config
+
+Add a provider block like this to your OpenCode config:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "appleai": {
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "name": "AppleAI",
+        "apiKey": "YOUR_APPLEAI_API_KEY",
+        "baseURL": "https://api.appleai.codes/v1"
+      },
+      "models": {
+        "claude-sonnet-4": {
+          "name": "anthropic/claude-sonnet-4"
+        },
+        "gpt-5": {
+          "name": "openai/gpt-5"
+        }
+      }
+    }
+  },
+  "model": "appleai/claude-sonnet-4"
+}
+```
+
+## What to verify
+
+1. The provider name and the model prefix line up
+2. `baseURL` includes `/v1`
+3. Each OpenCode model alias maps to the routed model you want upstream
+
+If you rename the provider block, update the leading segment in the `model` field to match.

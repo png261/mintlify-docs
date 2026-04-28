@@ -1,0 +1,26 @@
+---
+title: "Cursor"
+description: "Use Cursor's custom OpenAI endpoint flow with appleai.codes."
+icon: "desktop"
+---
+
+Cursor can use `appleai.codes` when you provide an externally reachable OpenAI-compatible base URL and your API key.
+
+## Setup steps
+
+1. Open **Cursor Settings**.
+2. Go to **Models** or **Model Providers**.
+3. Enable the OpenAI-compatible provider flow.
+4. Set the base URL to `https://api.appleai.codes/v1`.
+5. Paste `YOUR_APPLEAI_API_KEY`.
+6. Add the routed model path you want to use, such as `anthropic/claude-sonnet-4` or `openai/gpt-5`.
+
+## Recommended checks
+
+- Use the full `https://api.appleai.codes/v1` URL, not just the host
+- Make sure Cursor can reach the endpoint from your network
+- Keep the model path identical to the route you validated with `curl`
+
+## When to use another guide
+
+If your Cursor build does not expose custom provider settings, switch to a tool with a direct config file or use the [MITM-only tools](/cli-tools/mitm-tools) flow.

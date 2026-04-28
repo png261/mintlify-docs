@@ -1,133 +1,101 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
-icon: 'star'
+title: "CLI tool setup guides"
+description: "Connect your coding tools to appleai.codes with one OpenAI-compatible endpoint."
+icon: "terminal"
 ---
 
-## Setting up
+`appleai.codes` gives you one endpoint for your coding tools. These guides show you how to connect Claude Code, Codex CLI, Cursor, OpenCode, Continue, Roo, and other OpenAI-compatible clients without repeating the same setup work in every app.
 
-Get your documentation site up and running in minutes.
+Base URL for all tools: `https://api.appleai.codes/v1`
 
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
-
-## Make it yours
-
-Design a docs site that looks great and empowers your users.
+## Start here
 
 <Columns cols={2}>
   <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
+    title="Quickstart"
+    icon="rocket"
+    href="/quickstart"
   >
-    Edit your docs locally and preview them in real time.
+    Copy the shared values and get your first tool working in a few minutes.
   </Card>
   <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
+    title="Shared configuration"
+    icon="sliders"
+    href="/getting-started/shared-configuration"
   >
-    Customize the design and colors of your site to match your brand.
-  </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
-  </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
+    Reuse the same base URL, API key, and model path format across every guide.
   </Card>
 </Columns>
 
-## Create beautiful pages
-
-Everything you need to create world-class documentation.
+## CLI setup guides
 
 <Columns cols={2}>
   <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
-  </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
-  </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
-
-## Make your content agent ready
-
-Make your docs work for humans and AI agents alike.
-
-<Columns cols={2}>
-  <Card
-    title="Prompt component"
-    icon="robot"
-    href="/agent-ready/prompt"
-  >
-    Embed shareable AI prompts readers can copy or open in Cursor.
-  </Card>
-  <Card
-    title="Visibility"
-    icon="eye"
-    href="/agent-ready/visibility"
-  >
-    Show different content to humans and agents reading your docs.
-  </Card>
-  <Card
-    title="Contextual menu"
-    icon="bolt"
-    href="/agent-ready/contextual"
-  >
-    Give readers one-click access to Claude, ChatGPT, Cursor, and more.
-  </Card>
-  <Card
-    title="AI coding tools"
+    title="Claude Code"
     icon="wand-magic-sparkles"
-    href="/ai-tools/claude-code"
+    href="/cli-tools/claude-code"
   >
-    Set up Claude Code, Cursor, or Windsurf with Mintlify's skill.
+    Use Anthropic-compatible environment variables in `~/.claude/settings.json`.
+  </Card>
+  <Card
+    title="Codex CLI"
+    icon="terminal"
+    href="/cli-tools/codex-cli"
+  >
+    Add an OpenAI-compatible provider block to `~/.codex/config.toml`.
+  </Card>
+  <Card
+    title="OpenCode"
+    icon="code"
+    href="/cli-tools/opencode"
+  >
+    Register an OpenAI-compatible provider and routed model in one config file.
+  </Card>
+  <Card
+    title="Cursor"
+    icon="desktop"
+    href="/cli-tools/cursor"
+  >
+    Use Cursor's custom OpenAI endpoint flow with an externally reachable base URL.
+  </Card>
+  <Card
+    title="Cline, Continue, and Roo"
+    icon="toolbox"
+    href="/cli-tools/cline-continue-roo"
+  >
+    Apply the same provider settings to editor agents that support custom model endpoints.
+  </Card>
+  <Card
+    title="MITM-only tools"
+    icon="route"
+    href="/cli-tools/mitm-tools"
+  >
+    Use the fallback path for tools that do not expose a normal custom-provider UI.
   </Card>
 </Columns>
 
-## Need inspiration?
+## Reference
 
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+<Columns cols={3}>
+  <Card
+    title="Model paths"
+    icon="sitemap"
+    href="/reference/model-paths"
+  >
+    Keep your route names consistent when you compare tools.
+  </Card>
+  <Card
+    title="Troubleshooting"
+    icon="life-ring"
+    href="/reference/troubleshooting"
+  >
+    Fix the common 401, 404, model, and streaming errors quickly.
+  </Card>
+  <Card
+    title="Notice"
+    icon="triangle-exclamation"
+    href="/reference/notice"
+  >
+    Understand the relay and policy tradeoffs before you route production traffic.
+  </Card>
+</Columns>

@@ -1,0 +1,21 @@
+---
+title: "Notice"
+description: "Understand the relay, policy, and support tradeoffs before you route production traffic."
+icon: "triangle-exclamation"
+---
+
+`appleai.codes` is a third-party relay layer. It is not the model vendor.
+
+## What that means
+
+- Upstream model behavior, limits, and outages still come from the original vendor
+- Your organization should review data handling before you route sensitive prompts or source code
+- Vendor support teams may ask you to reproduce issues against the direct upstream API
+
+## Recommended operating posture
+
+1. Validate a routed model with small prompts first
+2. Keep a direct upstream fallback for critical workflows
+3. Re-test after major CLI or editor-agent updates
+
+Use the relay when it improves routing, cost control, or tool compatibility. Do not treat it as a zero-risk drop-in replacement for every upstream provider workflow.

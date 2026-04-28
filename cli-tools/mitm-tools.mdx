@@ -1,0 +1,28 @@
+---
+title: "MITM-only tools"
+description: "Use the fallback path for products that do not expose a normal custom-provider flow."
+icon: "route"
+---
+
+Some products do not let you set a custom base URL, auth header, or routed model directly. For those tools, use a local MITM or proxy layer instead of the normal setup guides.
+
+## Use this path only when needed
+
+This flow is heavier than a direct provider configuration. Start with the direct guides first and move here only when the tool blocks custom endpoint settings.
+
+## Typical MITM flow
+
+1. Start the local proxy service that forwards requests to `appleai.codes`.
+2. Trust the local certificate or network interception layer if the tool requires it.
+3. Map the tool's expected upstream model names to your routed `appleai.codes` model paths.
+4. Confirm one request succeeds before you use the tool for real work.
+
+## Good candidates for this flow
+
+- GitHub Copilot chat surfaces that do not expose provider settings
+- Kiro or other hosted IDE agents that hardcode the upstream API
+- Products that accept only the vendor's default hostname
+
+## Operational warning
+
+MITM setups are more brittle than direct provider configs. They can break after tool updates, certificate changes, or upstream protocol changes. Keep this flow as a fallback, not your first choice.
